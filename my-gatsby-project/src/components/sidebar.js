@@ -1,11 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import {
-  FaLinkedin,
-  FaGithub,
-  FaEnvelope,
-  FaTelegramPlane,
-} from "react-icons/fa"
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"
 import { useStaticQuery, graphql } from "gatsby"
 
 const SideBar = () => {
@@ -30,7 +25,6 @@ const SideBar = () => {
   const email = "mailto:" + site.siteMetadata.social.email
   const linkedin =
     "https://linkedin.com/in/" + site.siteMetadata.social.linkedin
-  const telegram = "https://t.me/" + site.siteMetadata.social.telegram
 
   return (
     <aside className="sidebar">
@@ -120,16 +114,6 @@ const SideBar = () => {
               rel="noopener noreferrer"
             >
               <FaLinkedin className="social-icons" />
-            </a>
-          </li>
-          <li className="social-items">
-            <a
-              href={telegram}
-              className="social-links"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTelegramPlane className="social-icons" />
             </a>
           </li>
         </div>
