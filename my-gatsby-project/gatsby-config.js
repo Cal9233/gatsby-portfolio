@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Fresh`,
+    title: `Calvin Malagon`,
     description: `GatsbyJS starter blog with the Fresh theme.`,
     author: `@mishal23`,
     siteUrl: `https://gatsby-starter-fresh.netlify.app`,
