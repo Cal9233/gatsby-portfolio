@@ -1,30 +1,100 @@
 module.exports = {
-    siteMetadata: {
-        // You can overwrite the following values or add new values and query them
-        // The following three values are used in the SEO component
-        // Refer: https://github.com/OpenArchitex/gatsby-themes/blob/master/themes/gatsby-theme-minimal-portfolio/gatsby-config.js
-        title: "Minimal Portfolio",
-        description: "Minimal portfolio with About, Projects and Contact sections",
-        author: "OpenArchitex"
-    },
-    plugins: [
-        {
-            resolve: `@openarchitex/gatsby-theme-minimal-portfolio`,
-            options: {}
-        },
-        {
-            resolve: `gatsby-plugin-manifest`,
-            options: {
-                name: `@openarchitex/gatsby-theme-minimal-portfolio`,
-                short_name: `Minimal Portfolio`,
-                description: `Minimal portfolio with About, Projects and Contact sections`,
-                start_url: `/`,
-                background_color: `#f7f0eb`,
-                theme_color: `#a2466c`,
-                display: `standalone`,
-                icon: `src/images/favicon.png`,
-            },
-        },
-        `gatsby-plugin-offline`,
+  siteMetadata: {
+    title: `Fresh`,
+    description: `GatsbyJS starter blog with the Fresh theme.`,
+    author: `@mishal23`,
+    siteUrl: `https://gatsby-starter-fresh.netlify.app`,
+    keywords: [
+      "mishal23",
+      "Mishal Shah",
+      "Gatsby",
+      "Fresh",
+      "themes",
+      "blog",
+      "PWA",
+      "disqus",
+      "Google Analytics",
+      "markdown",
+      "code highlighting",
+      "SEO",
+      "social media",
+      "sitemap",
+      "contact form",
     ],
+    social: {
+      github: `https://github.com/Cal9233`,
+      email: `calvin.m9233@gmail.com`,
+      linkedin: `https://www.linkedin.com/in/calmalagon/`,
+      formspree: "",
+    },
+    image: "/fresh.png",
+  },
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Fresh Theme`,
+        short_name: `fresh`,
+        start_url: `/`,
+        background_color: `#2d2a2a`,
+        theme_color: `#2d2a2a`,
+        display: `minimal-ui`,
+        icon: `src/images/fresh-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-images`,
+          {
+            resolve: `gatsby-remark-highlight-code`,
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "<GA Code>",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: false,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `fresh`,
+      },
+    },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+  ],
 }

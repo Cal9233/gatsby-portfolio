@@ -1,6 +1,18 @@
 import React from "react"
-import MinimalPortfolio from "@openarchitex/gatsby-theme-minimal-portfolio/src/templates/minimal-portfolio";
+import SEO from "../components/seo"
+import Default from "../components/default"
+import BlogList from "../components/blogList"
 
-export default function Home() {
-  return <MinimalPortfolio />
+
+const IndexPage = () => {
+
+  return(
+  <>
+  	<SEO title="fresh"/>
+    <Default></Default>
+    <BlogList></BlogList>
+  </>
+  )
 }
+
+export default IndexPage
